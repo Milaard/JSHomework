@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Создать в html список состоящий из 3-х произвольных элементов li
+Нужно создать кнопку которая будет добавлять элементы списка с текстом “новый элемент списка”
+Создать кнопку, которая будет удалять первый элемент из созданного списка
+Создать кнопку, при клике на которую ей добавляется-убирается класс “click” -->
+    <ul class="menu" >
+        <li>Элемент1</li>
+        <li>Элемент2</li>
+        <li>Элемент3</li>
+    </ul>
+    <script>
+        const button1 = document.createElement('button');
+        button1.textContent = 'Добавить новый элемент';
+        const bodyEl = document.querySelector('body');
+        bodyEl.appendChild(button1);
+        const menuEl = document.querySelector('.menu');
+    
+        button1.onclick = function () {
+            const newLi = document.createElement('li');
+            menuEl.appendChild(newLi);
+            newLi.textContent = 'Новый элемент списка';
+        };
+
+        const button2 = document.createElement('button');
+        button2.textContent = 'Удалить первый элемент';
+        bodyEl.appendChild(button2);
+        button2.onclick = function () {
+            if(document.querySelector('li')){
+                (document.querySelector('li')).remove();
+            }
+        };
+
+        const button3 = document.createElement('button');
+        button3.textContent = 'Click';
+        bodyEl.appendChild(button3);
+
+        // Вариант 1
+        button3.onclick = (event) => {
+           button3.classList.toggle('click');
+        };
+        // Вариант 2
+        // button3.onclick = function () {
+        //     if (document.querySelector('.click')) {
+        //         button3.classList.remove('click');
+        //     } else {
+        //         button3.classList.add('click');
+        //     }
+        // };
+
+
+
+
+
+
+    </script>
+</body>
+</html>
