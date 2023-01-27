@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: cornflowerblue;
+            gap: 32px;
+        } 
+        .card{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 250px;
+            border: 1px solid #000;
+            padding: 16px;
+            background-color: aqua;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Поиск в интернете (бесплатные api примеры)
+Найти любые данные, на произвольную тему
+Создать файл data.js
+Создать переменную которая будет хранить данные из публичных api
+
+Создать файл index.html
+Подключить data.js
+Сформировать контент из данных (картинка загловок и параграф)
+Добавить данный контент в вёрстку
+* Добавить стили при необходимости (по желанию) -->
+<div class="content"></div>
+
+    <script src="json.js"></script>
+
+    <script>
+
+        const dataEl = JSON.parse(dataInfo);
+        console.log(dataEl);
+               
+        dataEl.forEach(element => {
+            const contentEl = document.querySelector('.content');
+            const imgEl = document.createElement('img');
+            const headingEl = document.createElement('h2');
+            const paragraphEl = document.createElement('p');
+            const cardsEl = document.createElement('div');
+            cardsEl.classList.add('card');
+
+            imgEl.src = element.url;
+            imgEl.alt = element.id;
+            imgEl.width = element.width;
+            headingEl.textContent = element.name;
+            paragraphEl.textContent = element.description;
+
+            contentEl.appendChild(cardsEl);
+        
+            cardsEl.appendChild(imgEl);
+            cardsEl.appendChild(headingEl);
+            cardsEl.appendChild(paragraphEl);
+           
+       });
+
+
+    </script>
+</body>
+</html>
