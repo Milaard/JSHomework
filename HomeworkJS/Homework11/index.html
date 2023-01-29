@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+
+
+<div class="container">
+    <h2 class="heading2">Fetured Items</h2>
+    <h3 class="heading3">Shop for items based on what we featured in this week</h3>
+<div class="content">
+    <!-- <div class="cards">
+            <div class="photos">
+                <img class="photo" src="img/photo1.png" alt="">
+            </div>
+            <h2 class="heading">ELLERY X M'O CAPSULE</h2>
+            <p class="paragraph" >"Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi."</p>
+            <p class="price">$52.00</p>
+        </div> -->
+</div>
+    <button class="button">Browse All Product</button>
+</div>
+
+
+<script src="json.js"></script>
+<script>
+const cardsEl = JSON.parse(cards);
+console.log(cardsEl);
+
+
+cardsEl.forEach(element => {
+
+    const contentEl = document.querySelector('.content');
+    const cardsDiv = document.createElement('div');
+    cardsDiv.classList.add('cards');
+    contentEl.appendChild(cardsDiv);
+
+    const photosEl = document.createElement('div');
+    photosEl.classList.add('photos');
+    cardsDiv.appendChild(photosEl);
+   
+    const imgEl = document.createElement('img');
+    imgEl.classList.add('photo');
+    photosEl.appendChild(imgEl);
+
+    const headingEl = document.createElement('h2');
+    headingEl.classList.add('heading');
+    cardsDiv.appendChild(headingEl);
+    
+
+    const paragraphEl = document.createElement('p');
+    paragraphEl.classList.add('paragraph');
+    cardsDiv.appendChild(paragraphEl);
+   
+
+    const priceEl = document.createElement('p');
+    priceEl.classList.add('price');
+    cardsDiv.appendChild(priceEl);
+
+    imgEl.src = element.img;
+    headingEl.textContent = element.heading;
+    paragraphEl.textContent = element.description;
+    priceEl.textContent = element.price;
+
+
+});
+
+</script>
+
+</body>
+</html>
+
+
+  <!-- Дан макет сайта https://www.figma.com/file/mnLY69cYE5cqWM5w6n5hXx/Seo-%26-Digital-Marketing-Landing-Page?node-id=190%3A1194&t=q4NMnXTnwyyTSGA6-0
+
+В блоке Featured Items небходимо реализовать шаблон товаров.
+
+Для этого необходимо создать json формат данных по всем товарам.
+
+Из этого файла сформировать блок Featured Items.
+
+Всю вёрстку остальных частей реализовывать не нужно, если у вас она была сделана на html/css можно использовать, заново создавать не требуется -->
