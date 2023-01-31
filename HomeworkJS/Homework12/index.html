@@ -1,0 +1,210 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+
+<div class="mainContainer">
+    <div class="container">
+        <h2 class="heading2">Fetured Items</h2>
+        <h3 class="heading3">Shop for items based on what we featured in this week</h3>
+        <div class="content">
+    
+            <!-- <div class="cards">
+                <div class="holder">
+                    <div class="block">
+                        <button class="buttonCart">ADD TO CART</button>
+                    </div>
+                    <div class="photos">
+                        <img class="photo" src="img/photo1.png" alt="">
+                    </div>
+          
+            <h2 class="heading">ELLERY X M'O CAPSULE</h2>
+            <p class="paragraph" >"Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi."</p>
+            <p class="price">$52.00</p>
+       
+            </div> -->
+        </div>
+        <button class="button">Browse All Product</button>
+    </div>
+
+    
+</div>
+
+</div>
+
+<div class="mainContainer">
+    <div class="sectionTwo">
+        <div class="block1">
+            <img src="img/Forma 1.png" alt="photo1">
+            <h3 class="blockHeading">Free Delivery</h3>
+            <p class="blockParagraph">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </div>
+        <div class="block1">
+            <img src="img/Forma 1 (1).png" alt="photo1">
+            <h3 class="blockHeading">Sales & discounts</h3>
+            <p class="blockParagraph">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </div>
+        <div class="block1">
+            <img src="img/Forma 1 (2).png" alt="photo1">
+            <h3 class="blockHeading">Quality assurance</h3>
+            <p class="blockParagraph">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </div>
+    </div>
+</div>
+
+<div class="mainContainer">
+    <div id="divLast" class="cartItems" >
+        <h1 class="cartItemsH1">Cart Items</h1>
+
+        <div class="yourCards"></div>
+    </div>
+</div>
+
+
+<script src="json.js"></script>
+<script>
+const cardsEl = JSON.parse(cards);
+console.log(cardsEl);
+
+
+cardsEl.forEach(element => {
+
+    const contentEl = document.querySelector('.content');
+
+    const cartItems = document.getElementById('divLast');
+    const yourCardsEl = document.querySelector('.yourCards');
+    cartItems.appendChild(yourCardsEl);
+
+
+    const cardsDiv = document.createElement('div');
+    cardsDiv.classList.add('cards');
+    contentEl.appendChild(cardsDiv);
+    const holderEl = document.createElement('div');
+    holderEl.classList.add('holder');
+    cardsDiv.appendChild(holderEl);
+
+    const blockEl = document.createElement('div');
+    blockEl.classList.add('block');
+    holderEl.appendChild(blockEl);
+
+    const buttonCartEl = document.createElement('button');
+    buttonCartEl.classList.add('buttonCart');
+    buttonCartEl.textContent = 'Add to cart',
+    blockEl.appendChild(buttonCartEl);
+   
+
+    const photosEl = document.createElement('div');
+    photosEl.classList.add('photos');
+    holderEl.appendChild(photosEl);
+   
+    const imgEl = document.createElement('img');
+    imgEl.classList.add('photo');
+    photosEl.appendChild(imgEl);
+
+    const headingEl = document.createElement('h2');
+    headingEl.classList.add('heading');
+    holderEl.appendChild(headingEl);
+    
+
+    const paragraphEl = document.createElement('p');
+    paragraphEl.classList.add('paragraph');
+    holderEl.appendChild(paragraphEl);
+   
+
+    const priceEl = document.createElement('p');
+    priceEl.classList.add('price');
+    holderEl.appendChild(priceEl);
+
+    imgEl.src = element.img;
+    headingEl.textContent = element.heading;
+    paragraphEl.textContent = element.description;
+    priceEl.textContent = element.price;
+
+    buttonCartEl.addEventListener('click', function (e) {
+        
+
+        cartItems.classList.add('holderCart');
+        const products = document.createElement('div');
+        products.classList.add('products');
+        yourCardsEl.appendChild(products);
+        const imgPhoto = document.createElement('img');
+        imgPhoto.classList.add('photoCarts');
+        imgPhoto.src = element.img;
+        products.appendChild(imgPhoto);
+        const headingCart = document.createElement('h2');
+        headingCart.classList.add('headingCart');
+        headingCart.textContent =element.heading;
+        
+
+        const cartProducts = document.createElement('div');
+        cartProducts.classList.add('cartProducts');
+        products.appendChild(cartProducts);
+        cartProducts.appendChild(headingCart);
+
+        const productValues = ["Price: ","Color: ","Size: ","Quantity: "]
+        const dataArray = Object.values(element); 
+        for (let i = 0; i <  productValues.length; i++) {  
+            const productEl = document.createElement('div');
+            productEl.classList.add('product');
+
+            const productP = document.createElement('p');
+            productP.textContent = productValues[i];
+            const productSpan = document.createElement('span');
+            productSpan.textContent =   dataArray[i];
+            if(i===0)productSpan.classList.add('color');
+            if (i===3)productSpan.classList.add('quantity');
+            cartProducts.appendChild(productEl);
+            productEl.appendChild(productP)  ;
+            productEl.appendChild(productSpan); 
+            
+
+        }
+        
+        
+        const buttonClose = document.createElement('button');
+            buttonClose.classList.add('buttonClose');
+            buttonClose.textContent = 'X';
+            products.appendChild(buttonClose);
+
+            buttonClose.addEventListener('click', function (e) {
+                e.target.parentNode.remove();
+                if (document.querySelector('.yourCards').innerHTML === '') {
+                    cartItems.classList.remove('holderCart');
+                }
+            });
+    });
+    
+});
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+    <!-- Дан макет сайта https://www.figma.com/file/mnLY69cYE5cqWM5w6n5hXx/Seo-%26-Digital-Marketing-Landing-Page?node-id=4203%3A2&t=q4NMnXTnwyyTSGA6-0
+
+На предыдущем уроке вы сформировали данные из раздела товары
+
+При клике на кнопку add to cart у товара под блоком с акциями появляется раздел Cart items
+
+В разделе Cart items появляются товары, добавленные в корзину
+
+При клике на крестик, товар удаляется из из раздела корзины, если удалить все товары, раздел полностью пропадает. -->

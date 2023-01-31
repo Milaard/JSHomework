@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mainContainer {
+    width: 1600px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+
+}
+
+.container {
+    width: 1140px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+}
+
+.heading2 {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #222222;
+}
+
+.heading3 {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #9F9F9F;
+}
+
+.content {
+    margin-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+
+}
+
+.cards {
+    width: 360px;
+    height: 581px;
+    background: #F8F8F8;
+}
+
+.heading {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    margin-top: 24px;
+    padding-left: 16px;
+
+}
+
+.paragraph {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #5D5D5D;
+    margin-top: 12px;
+    padding-left: 16px;
+}
+
+.price {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #F16D7F;
+    margin-top: 18px;
+    margin-bottom: 20px;
+    padding-left: 16px;
+}
+
+.button {
+    width: 211px;
+    height: 47px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #F26376;
+    border: 1px solid #FF6A6A;
+    margin-top: 48px;
+    margin-bottom: 95px;
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+}
+
+.holder {
+    position: absolute;
+    width: 360px;
+    height: 581px;
+}
+
+.block {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+    border: 1px solid gray;
+    display: none;
+    background-color: #e9c1c1;
+}
+
+.holder:hover .block {
+    display: block;
+}
+
+.buttonCart {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e4e9f0;
+    margin-left: 60px;
+    width: 200px;
+    height: 50px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 19px;
+    color: #F26376;
+    border: 1px solid #FF6A6A;
+
+
+}
+
+.sectionTwo {
+    width: 1600px;
+    height: 341px;
+    background: #222224;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.blockHeading {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19.96px;
+    line-height: 24px;
+    color: #FBFBFB;
+    margin-top: 25px;
+}
+
+.blockParagraph {
+    margin-top: 15px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13.972px;
+    line-height: 17px;
+    text-align: center;
+    color: #FBFBFB;
+}
+
+.block1 {
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cartItems {
+
+    display: none;
+
+}
+
+.products {
+    width: 625px;
+    height: 306px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.holderCart {
+    height: 940px;
+    display: block;
+}
+
+.cartItemsH1 {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #222222;
+    margin-top: 96px;
+    margin-bottom: 64px;
+}
+
+.cartProducts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+}
+
+.product {
+    margin-top: 10px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+
+    color: #575757;
+    display: flex;
+}
+
+.buttonClose {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+.color {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    color: #EF5B70;
+}
+
+.headingCart {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #222222;
+    margin-bottom: 20px;
+}
+
+.quantity {
+    margin-left: 25px;
+}
