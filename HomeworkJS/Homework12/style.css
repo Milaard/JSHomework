@@ -147,47 +147,6 @@
 
 
 }
-
-.sectionTwo {
-    width: 1600px;
-    height: 341px;
-    background: #222224;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-
-}
-
-.blockHeading {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 19.96px;
-    line-height: 24px;
-    color: #FBFBFB;
-    margin-top: 25px;
-}
-
-.blockParagraph {
-    margin-top: 15px;
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 13.972px;
-    line-height: 17px;
-    text-align: center;
-    color: #FBFBFB;
-}
-
-.block1 {
-    width: 360px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
 .cartItems {
 
     display: none;
@@ -218,6 +177,8 @@
     color: #222222;
     margin-top: 96px;
     margin-bottom: 64px;
+    display: flex;
+    justify-content: center;
 }
 
 .cartProducts {
@@ -234,7 +195,6 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 26px;
-
     color: #575757;
     display: flex;
 }
@@ -260,7 +220,6 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
-
     color: #222222;
     margin-bottom: 20px;
 }
@@ -268,3 +227,4 @@
 .quantity {
     margin-left: 25px;
 }
+

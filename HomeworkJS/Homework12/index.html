@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+
   
 
 <div class="mainContainer">
@@ -46,30 +47,11 @@
 
 </div>
 
-<div class="mainContainer">
-    <div class="sectionTwo">
-        <div class="block1">
-            <img src="img/Forma 1.png" alt="photo1">
-            <h3 class="blockHeading">Free Delivery</h3>
-            <p class="blockParagraph">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-        </div>
-        <div class="block1">
-            <img src="img/Forma 1 (1).png" alt="photo1">
-            <h3 class="blockHeading">Sales & discounts</h3>
-            <p class="blockParagraph">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-        </div>
-        <div class="block1">
-            <img src="img/Forma 1 (2).png" alt="photo1">
-            <h3 class="blockHeading">Quality assurance</h3>
-            <p class="blockParagraph">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-        </div>
-    </div>
-</div>
+>
 
 <div class="mainContainer">
     <div id="divLast" class="cartItems" >
         <h1 class="cartItemsH1">Cart Items</h1>
-
         <div class="yourCards"></div>
     </div>
 </div>
@@ -135,15 +117,37 @@ cardsEl.forEach(element => {
     priceEl.textContent = element.price;
 
     buttonCartEl.addEventListener('click', function (e) {
-        
 
+        const productId = element.id;
+      
+        const oldCard = document.querySelector("[id = '"+ productId +"' ]");
+
+        //2 вариант условия:
+        //const oldCard = document.querySelector(`#${CSS.escape(productId)}`);
+       
+        if (oldCard != null)
+        {
+             const count = oldCard.querySelector('.quantity');
+             const currentCount = parseInt(count.innerHTML)+1;
+             count.innerHTML = currentCount;
+            return;
+        } 
+
+        
+       
         cartItems.classList.add('holderCart');
         const products = document.createElement('div');
+    
+        
         products.classList.add('products');
+        const id = element.id;
+        products.id = id;
+        console.log(products.id);
         yourCardsEl.appendChild(products);
         const imgPhoto = document.createElement('img');
         imgPhoto.classList.add('photoCarts');
         imgPhoto.src = element.img;
+        imgPhoto.alt = element.id;
         products.appendChild(imgPhoto);
         const headingCart = document.createElement('h2');
         headingCart.classList.add('headingCart');
@@ -154,23 +158,38 @@ cardsEl.forEach(element => {
         cartProducts.classList.add('cartProducts');
         products.appendChild(cartProducts);
         cartProducts.appendChild(headingCart);
+       
 
-        const productValues = ["Price: ","Color: ","Size: ","Quantity: "]
-        const dataArray = Object.values(element); 
-        for (let i = 0; i <  productValues.length; i++) {  
+       
+       
+        const productValues = ["Price: ","Color: ","Size: ","Quantity: "];
+        const dataArray = Object.values(element);
+        console.log(dataArray);
+        console.log(dataArray[7]);
+       
+       
+        for (let i = 0; i <  productValues.length; i++) { 
+            
+           
+
             const productEl = document.createElement('div');
             productEl.classList.add('product');
 
             const productP = document.createElement('p');
             productP.textContent = productValues[i];
+            
             const productSpan = document.createElement('span');
             productSpan.textContent =   dataArray[i];
             if(i===0)productSpan.classList.add('color');
-            if (i===3)productSpan.classList.add('quantity');
+            if (i===3){
+                productSpan.classList.add('quantity');
+            }
+
+
             cartProducts.appendChild(productEl);
             productEl.appendChild(productP)  ;
             productEl.appendChild(productSpan); 
-            
+       
 
         }
         
@@ -186,6 +205,9 @@ cardsEl.forEach(element => {
                     cartItems.classList.remove('holderCart');
                 }
             });
+
+            
+
     });
     
 });
